@@ -87,4 +87,4 @@ mean(abs(nulls)>obs)
 
     ## [1] 0.0267
 
-This is called the p-value, or the answer to the question "what is the probability that an outcome from the null distribution is bigger than what we observed, when the null hypothesis is true"
+This is called the p-value, or the answer to the question "what is the probability that an outcome from the null distribution is bigger than what we observed, when the null hypothesis is true". Small p-values mean we reject the null hypothesis, and accept our alternative hypothesis: That diet does affect the mice weights.
