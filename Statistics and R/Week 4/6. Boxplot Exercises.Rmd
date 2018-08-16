@@ -1,0 +1,44 @@
+---
+title: "Boxplot Exercises"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The InsectSprays data set measures the counts of insects in agricultural experimental units treated with different insecticides. This dataset is included in R, and you can examine it by typing:  
+```{r}
+data <- InsectSprays
+head(data)
+```  
+There are two ways of drawing boxplots in R.  
+```{r}
+boxplot(split(data$count,data$spray))
+```
+```{r}
+boxplot(data$count ~ data$spray)
+```  
+
+###Exercise 1
+Which spray is the most effective (lowest median)?  
+C  
+
+###Exercise 2
+Let's consider a random sample of finishers from the New York City Marathon in 2002. This dataset can be found in the UsingR package. Load the library and then load the nym.2002 dataset.  
+```{r message=FALSE}
+library(UsingR)
+library(dplyr)
+runners <- nym.2002
+```
+Use boxplots and histograms to compare the finishing times of males and females. Which of the following best describes the difference?  
+```{r}
+boxplot(split(runners$time,runners$gender)) 
+data <- runners %>% select(time,gender)
+split <- split(data,data$gender)
+hist(split$Female$time, main="Female")
+hist(split$Male$time, main="Male")
+
+```
+Male and females have similar right skewed distributions with the former, 20 minutes shifted to the left
+
